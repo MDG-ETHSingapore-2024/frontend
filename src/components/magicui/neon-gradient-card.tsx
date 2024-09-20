@@ -123,8 +123,7 @@ const NeonGradientCard: React.FC<NeonGradientCardProps> = ({
         } as CSSProperties
       }
       className={cn(
-        "relative z-10 h-full w-full rounded-[var(--border-radius)]",
-        className,
+        "relative z-10 h-full w-full rounded-[var(--border-radius)]"
       )}
       {...props}
     >
@@ -140,6 +139,7 @@ const NeonGradientCard: React.FC<NeonGradientCardProps> = ({
           "after:bg-[linear-gradient(0deg,var(--neon-first-color),var(--neon-second-color))] after:bg-[length:100%_200%] after:opacity-80",
           "after:animate-backgroundPositionSpin",
           "dark:bg-neutral-900",
+          className
         )}
       >
         {children}
