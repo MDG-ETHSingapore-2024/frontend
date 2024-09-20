@@ -3,7 +3,8 @@ import ProjectCard from "./ProjectCard";
 
 import { PaginationView } from "./PagtinationView";
 import { useState } from "react";
-import CreateProjectModal from "./ProjectModal";
+import CreateProjectModal from "./CreateProjectModal";
+import AddColumnComponent from "./AddColumnModal";
 const ProjectView = ({
   projects,
   index,
@@ -41,6 +42,10 @@ const ProjectView = ({
         isOpen={isNewProject}
         onClose={() => setIsNewProject(false)}
       />
+      {/* <AddColumnComponent
+        isOpen={isNewProject}
+        onClose={() => setIsNewProject(false)}
+      /> */}
     </div>
   );
 };
