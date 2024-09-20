@@ -10,8 +10,17 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@dynamic-labs/algorand": "^3.1.0",
+    "@dynamic-labs/bitcoin": "^3.1.0",
+    "@dynamic-labs/ethereum": "^3.1.0",
+    "@dynamic-labs/flow": "^3.1.0",
+    "@dynamic-labs/sdk-react-core": "^3.1.0",
+    "@dynamic-labs/solana": "^3.1.0",
+    "@dynamic-labs/starknet": "^3.1.0",
+    "@dynamic-labs/wagmi-connector": "^3.1.0",
     "@radix-ui/react-icons": "^1.3.0",
     "@reduxjs/toolkit": "^2.2.7",
+    "@tanstack/react-query": "^5.56.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "framer-motion": "^11.5.5",
@@ -22,7 +31,9 @@
     "react-redux": "^9.1.2",
     "sonner": "^1.5.0",
     "tailwind-merge": "^2.5.2",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "viem": "^2.21.10",
+    "wagmi": "^2.12.12"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
