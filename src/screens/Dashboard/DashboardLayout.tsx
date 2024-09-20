@@ -1,4 +1,4 @@
-import Navbar from "@/components/general/Navbar";
+import Navbar from "@/components/global/Navbar";
 import { Outlet } from "react-router-dom";
 
 export const DashboardLayout = () => (

@@ -6,10 +6,7 @@ import { useLocation } from "react-router-dom";
 const Dashboard = () => {
   const projects: Project[] = dummyProjects;
   const { state } = useLocation();
-  console.log(state);
-  return (
-    <ProjectView projects={projects} index={state.page ? state.page : 0} />
-  );
+  return <ProjectView projects={projects} index={state ? state.page : 1} />;
 };
 
 export default Dashboard;
