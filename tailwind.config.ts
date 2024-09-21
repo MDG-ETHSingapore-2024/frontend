@@ -22,6 +22,21 @@ const config = {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ["SF Pro Rounded", "sans-serif"],
+        serif: ["SF Pro Rounded", "serif"],
+        mono: ["SF Pro Rounded", "monospace"],
+      },
+      fontWeight: {
+        thin: "200",
+        light: "300",
+        normal: "400",
+        medium: "500",
+        semibold: "600",
+        bold: "700",
+        heavy: "800",
+        black: "900",
+      },
       backgroundImage: {
         project: "url(/src/assets/bg-project.svg)",
         "project-hover": "url(/src/assets/bg-project-hover.svg)",
