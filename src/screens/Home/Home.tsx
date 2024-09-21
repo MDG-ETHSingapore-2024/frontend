@@ -8,7 +8,6 @@ import { toast } from "sonner";
 const Main = () => {
   const count = useAppSelector((state) => state.counter.value);
   const dispatch = useAppDispatch();
-
   return (
     <div className="flex flex-col justify-center items-center h-screen w-screen">
       <CardContainer>
