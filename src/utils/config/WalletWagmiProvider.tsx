@@ -4,6 +4,7 @@ import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import { DynamicContextProvider } from "@dynamic-labs/sdk-react-core";
 import { DynamicWagmiConnector } from "@dynamic-labs/wagmi-connector";
 import { EthereumWalletConnectors } from "@dynamic-labs/ethereum";
+import { DYNAMIC_ENV_ID } from "../contants/appInfo";
 const queryClient = new QueryClient();
 
 export const wagmiConfig = createConfig({
@@ -19,7 +20,7 @@ export const WalletWagmiProvider = ({ children, session }: any) => {
   return (
     <DynamicContextProvider
       settings={{
-        environmentId: import.meta.env.VITE_DYNAMIC_ENV_ID,
+        environmentId: DYNAMIC_ENV_ID,
         walletConnectors: [EthereumWalletConnectors],
       }}
     >

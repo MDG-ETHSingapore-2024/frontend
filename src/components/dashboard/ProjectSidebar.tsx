@@ -1,19 +1,25 @@
-import React from 'react';
-import documentIcon from '@/assets/document-icon.svg';
+import React from "react";
+import documentIcon from "@/assets/document-icon.svg";
 
 interface ProjectSidebarProps {
   items: string[];
   onItemClick: (item: string) => void;
   onAddItem: () => void;
-  type: 'table' | 'collection';
+  type: "table" | "collection";
   selectedItem: string | null;
 }
 
-const ProjectSidebar: React.FC<ProjectSidebarProps> = ({ items, onItemClick, onAddItem, type, selectedItem }) => {
+const ProjectSidebar: React.FC<ProjectSidebarProps> = ({
+  items,
+  onItemClick,
+  onAddItem,
+  type,
+  selectedItem,
+}) => {
   return (
     <div className="w-1/6 h-full text-white p-4">
       <h2 className="text-xl font-semibold mb-4">
-        {type === 'table' ? 'Tables' : 'Collections'}
+        {type === "table" ? "Tables" : "Collections"}
       </h2>
       <hr className="border-gray-600 mb-4" />
       <button
@@ -34,14 +40,16 @@ const ProjectSidebar: React.FC<ProjectSidebarProps> = ({ items, onItemClick, onA
             d="M12 4v16m8-8H4"
           ></path>
         </svg>
-        Add {type === 'table' ? 'Table' : 'Collection'}
+        Add {type === "table" ? "Table" : "Collection"}
       </button>
       <ul className="mt-6 space-y-2">
         {items.map((item) => (
           <li
             key={item}
             className={`cursor-pointer p-2 rounded flex items-center space-x-2 ${
-              selectedItem === item ? 'bg-[#EC4F9D] text-white' : 'hover:bg-gray-700'
+              selectedItem === item
+                ? "bg-[#EC4F9D] text-white"
+                : "hover:bg-gray-700"
             }`}
             onClick={() => onItemClick(item)}
           >

@@ -26,10 +26,13 @@ const projectsSlice = createSlice({
         );
       }
     },
+    setProjects: (state, action) => {
+      state.projects = action.payload;
+    },
   },
 });
 
-export const { addNewProject, deleteProject, setActiveProjectId } =
+export const { addNewProject, deleteProject, setActiveProjectId, setProjects } =
   projectsSlice.actions;
 
 export default projectsSlice.reducer;

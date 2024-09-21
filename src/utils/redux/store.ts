@@ -3,12 +3,14 @@ import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 
 import counterReducer from "./counter/counter.slice";
 import addColumnReducer from "./column/addColumn.slice";
+import projectsReducer from "./project/project.slice";
 // import authReducer from 'lib/redux/auth/auth.slice';
 
 const store = configureStore({
   reducer: {
     counter: counterReducer,
     addColumn: addColumnReducer,
+    projects: projectsReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

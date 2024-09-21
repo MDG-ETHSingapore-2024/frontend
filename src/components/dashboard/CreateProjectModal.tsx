@@ -2,6 +2,8 @@ import axios from "axios";
 import { addNewProject } from "@/utils/redux/project/project.slice";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import { BackendSdk } from "@/utils/services/backendSDK";
+import { BASE_BACKEND_URL } from "@/utils/contants/appInfo";
 
 const CreateProjectModal = ({
   isOpen,
@@ -18,23 +20,25 @@ const CreateProjectModal = ({
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-  
+
     try {
-      const response = await axios.post('/api/projects', {
-        name,
-        databasePassword,
-        chain,
-        type,
-      });
-  
+      const response = await BackendSdk.postData(
+        `${BASE_BACKEND_URL}/projects`,
+        {
+          name,
+          databasePassword,
+          chain,
+          type,
+        }
+      );
+
       dispatch(addNewProject(response.data));
       onClose();
     } catch (error) {
       console.error("Error creating project:", error);
-
     }
   };
-  
+
   if (!isOpen) return null;
 
   return (
