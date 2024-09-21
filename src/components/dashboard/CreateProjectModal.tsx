@@ -17,7 +17,17 @@ const CreateProjectModal = ({
   const [databasePassword, setDatabasePassword] = useState("");
   const [chain, setChain] = useState<string>("Ethereum");
   const [type, setType] = useState<string>("Relational");
-
+  const [icon, setIcon] = useState<string>("⌐◨-◨");
+  const noogles = [
+    "⌐◧-◧",
+    "⌐◨-◨",
+    "⌐🅄-🅄",
+    "⌐꩜-꩜",
+    "⌐♥-♥",
+    "◨ ◨",
+    "⌐◫-◫",
+    "⌐◐-◐",
+  ];
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -42,9 +52,9 @@ const CreateProjectModal = ({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-[#232323] bg-opacity-50 flex items-center justify-center backdrop-blur-sm">
+    <div className="fixed inset-0 bg-[#101010] bg-opacity-50 flex items-center justify-center backdrop-blur-sm">
       <div className="rounded-lg p-[1px] w-[60%]">
-        <div className="bg-[#232323] border-2 p-8 rounded-lg min-w-full max-w-md w-full">
+        <div className="bg-[#101010] border-2 p-8 rounded-lg min-w-full max-w-md w-full">
           <h2 className="text-2xl font-bold mb-4 text-white flex items-center gap-2">
             <span>
               <svg
@@ -82,7 +92,7 @@ const CreateProjectModal = ({
                 id="name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="w-1/2 bg-[#251926]/50 text-white rounded px-3 py-4 outline-none"
+                className="w-1/2 bg-[#1C1C1C] border-[#2E2E2E] border-[1px] text-white rounded-xl px-3 py-4 outline-none"
                 placeholder="Enter project name"
                 required
               />
@@ -99,7 +109,7 @@ const CreateProjectModal = ({
                 id="password"
                 value={databasePassword}
                 onChange={(e) => setDatabasePassword(e.target.value)}
-                className="w-1/2 bg-[#251926]/50 text-white rounded px-3 py-4 outline-none"
+                className="w-1/2 bg-[#1C1C1C] border-[#2E2E2E] border-[1px] text-white rounded-xl px-3 py-4 outline-none"
                 placeholder="Enter a strong password"
                 required
               />
@@ -115,7 +125,7 @@ const CreateProjectModal = ({
                 id="chain"
                 value={chain}
                 onChange={(e) => setChain(e.target.value)}
-                className="w-1/2 bg-[#251926]/50 text-white rounded px-3 py-4 outline-none"
+                className="w-1/2 bg-[#1C1C1C] border-[#2E2E2E] border-[1px] text-white rounded-xl px-3 py-4 outline-none"
               >
                 <option value="Ethereum">Ethereum</option>
                 <option value="Binance Smart Chain">Binance Smart Chain</option>
@@ -134,24 +144,42 @@ const CreateProjectModal = ({
                 id="type"
                 value={type}
                 onChange={(e) => setType(e.target.value)}
-                className="w-1/2 bg-[#251926]/50 text-white rounded px-3 py-4 outline-none"
+                className="w-1/2 bg-[#1C1C1C] border-[#2E2E2E] border-[1px] text-white rounded-xl px-3 py-4 outline-none"
               >
                 <option value="Relational">Relational</option>
                 <option value="Document">Document</option>
                 <option value="Graph">Graph</option>
               </select>
             </div>
+            <div className="mb-4 flex justify-between items-center">
+              <label
+                htmlFor="db_icon"
+                className="block text-sm font-medium w-1/2 mb-1"
+              >
+                ICON (OPTIONAL)
+              </label>
+              <select
+                id="db_icon"
+                value={icon}
+                onChange={(e) => setIcon(e.target.value)}
+                className="w-1/2 bg-[#1C1C1C] border-[#2E2E2E] border-[1px] text-white rounded-xl px-3 py-4 outline-none"
+              >
+                {noogles.map((icon, idx) => (
+                  <option value={`${icon}_${idx}`}>{icon}</option>
+                ))}
+              </select>
+            </div>
             <div className="flex justify-between">
               <button
                 type="button"
                 onClick={onClose}
-                className="bg-[#251926]/50 text-white px-4 py-2 rounded hover:bg-gray-600"
+                className="w-1/4 bg-[#1C1C1C] border-[#2E2E2E] border-[1px] text-white rounded-xl px-3 py-4 outline-none"
               >
                 Cancel
               </button>
               <button
                 type="submit"
-                className="bg-pink-600 text-white px-4 py-2 rounded hover:bg-pink-700"
+                className="w-1/4 bg-[#CC0595] border-[#FF45CA] border-[1px] text-white rounded-xl px-3 py-4 outline-none"
               >
                 Create
               </button>
