@@ -1,0 +1,33 @@
+<svg width="407" height="223" viewBox="0 0 407 223" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_146_764)">
+<mask id="path-1-inside-1_146_764" fill="white">
+<path d="M68 155H164V223H68V155Z"/>
+</mask>
+<path d="M68 155V154H67V155H68ZM164 155H165V154H164V155ZM68 156H164V154H68V156ZM163 155V223H165V155H163ZM69 223V155H67V223H69Z" fill="#2E2E2E" mask="url(#path-1-inside-1_146_764)"/>
+<mask id="path-3-inside-2_146_764" fill="white">
+<path d="M278 155H374V216H278V155Z"/>
+</mask>
+<path d="M278 155V154H277V155H278ZM374 155H375V154H374V155ZM278 156H374V154H278V156ZM373 155V216H375V155H373ZM279 216V155H277V216H279Z" fill="#2E2E2E" mask="url(#path-3-inside-2_146_764)"/>
+<mask id="path-5-inside-3_146_764" fill="white">
+<path d="M278 155H374V223H278V155Z"/>
+</mask>
+<path d="M278 155V154H277V155H278ZM374 155H375V154H374V155ZM278 156H374V154H278V156ZM373 155V223H375V155H373ZM279 223V155H277V223H279Z" fill="#2E2E2E" mask="url(#path-5-inside-3_146_764)"/>
+<mask id="path-7-inside-4_146_764" fill="white">
+<path d="M0 60H232V156H0V60Z"/>
+</mask>
+<path d="M0 61H232V59H0V61ZM232 155H0V157H232V155Z" fill="#282828" mask="url(#path-7-inside-4_146_764)"/>
+<mask id="path-9-inside-5_146_764" fill="white">
+<path d="M210 60H442V156H210V60Z"/>
+</mask>
+<path d="M210 61H442V59H210V61ZM442 155H210V157H442V155Z" fill="#282828" mask="url(#path-9-inside-5_146_764)"/>
+<mask id="path-11-inside-6_146_764" fill="white">
+<path d="M210 60H442V156H210V60Z"/>
+</mask>
+<path d="M210 61H442V59H210V61ZM442 155H210V157H442V155Z" fill="#282828" mask="url(#path-11-inside-6_146_764)"/>
+</g>
+<defs>
+<clipPath id="clip0_146_764">
+<rect width="407" height="223" fill="white"/>
+</clipPath>
+</defs>
+</svg>
