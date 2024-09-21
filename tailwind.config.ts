@@ -22,6 +22,10 @@ const config = {
       },
     },
     extend: {
+      backgroundImage: {
+        project: "url(/src/assets/bg-project.svg)",
+        "project-hover": "url(/src/assets/bg-project-hover.svg)",
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
