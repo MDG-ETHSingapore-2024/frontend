@@ -5,14 +5,23 @@ import { ReduxProvider } from "./utils/redux/provider.tsx";
 import { WalletWagmiProvider } from "./utils/config/WalletWagmiProvider.tsx";
 import Router from "./utils/config/Router.tsx";
 import "./global.css";
+import { ThemeProvider } from "./utils/config/ThemeProvider.tsx";
+import AuthProvider from "./utils/config/AuthProvider.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <ReduxProvider>
-      <WalletWagmiProvider>
-        <Router />
-      </WalletWagmiProvider>
-      <Toaster />
-    </ReduxProvider>
+    <ThemeProvider
+      attribute="class"
+      defaultTheme="dark"
+      enableSystem
+      disableTransitionOnChange
+    >
+      <ReduxProvider>
+        <WalletWagmiProvider>
+          <Router />
+        </WalletWagmiProvider>
+        <Toaster />
+      </ReduxProvider>
+    </ThemeProvider>
   </StrictMode>
 );

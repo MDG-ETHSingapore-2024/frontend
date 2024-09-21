@@ -1,41 +1,31 @@
-import { NeonGradientCard } from "@/components/magicui/neon-gradient-card";
-import { CardContainer } from "@/components/ui/3d-card";
-import { increment } from "@/utils/redux/counter/counter.slice";
-import { useAppDispatch, useAppSelector } from "@/utils/redux/store";
+import { BackgroundBeamsWithCollision } from "@/components/ui/background-beams-with-collision";
 import { DynamicWidget } from "@dynamic-labs/sdk-react-core";
-import { toast } from "sonner";
+import { Navigate, redirect } from "react-router-dom";
+import { useAccount } from "wagmi";
 
 const Main = () => {
-  const count = useAppSelector((state) => state.counter.value);
-  const dispatch = useAppDispatch();
+  const { address } = useAccount();
+  if (address) return <Navigate to={"/dashboard"} />;
   return (
-    <div className="flex flex-col justify-center items-center h-screen w-screen">
-      <CardContainer>
-        <NeonGradientCard className="space-y-5">
-          <h1 className="text-2xl">Let's get toasty 💋💋💋</h1>
-          <div className="flex justify-between">
-            <button
-              onClick={() => {
-                toast.error("We fucked up !!!");
-              }}
-              className="bg-orange-300 rounded-xl p-3 text-orange-800 hover:cursor-pointer hover:bg-orange-800 hover:text-orange-300"
-            >
-              Toast me
-            </button>
-            <button
-              onClick={() => {
-                dispatch(increment());
-                toast.success("I'm getting more toasty");
-              }}
-              className=" bg-red-300 rounded-xl p-3 text-red-800 hover:cursor-pointer hover:bg-red-800 hover:text-red-300"
-            >
-              Toast Count ({count})
-            </button>
+    <BackgroundBeamsWithCollision className="min-h-screen w-full flex flex-col">
+      {/* <ShineBorder
+        className="relative flex h-screen overflow-y-scroll w-full flex-col items-center justify-center border bg-background md:shadow-xl"
+        color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
+      > */}
+      <h2 className="text-2xl relative z-20 md:text-4xl lg:text-7xl font-bold text-center text-black dark:text-white font-sans tracking-tight">
+        Where your data doesn’t just sit <br />
+        <div className="relative mx-auto inline-block w-max [filter:drop-shadow(0px_1px_3px_rgba(27,_37,_80,_0.14))]">
+          <div className="absolute left-0 top-[1px] bg-clip-text bg-no-repeat text-transparent bg-gradient-to-r py-4 from-purple-500 via-violet-500 to-pink-500 [text-shadow:0_0_rgba(0,0,0,0.1)]">
+            <span className="">it ascends to Web3.</span>
           </div>
-          <DynamicWidget />
-        </NeonGradientCard>
-      </CardContainer>
-    </div>
+          <div className="relative bg-clip-text text-transparent bg-no-repeat bg-gradient-to-r from-purple-500 via-violet-500 to-pink-500 py-4">
+            <span className="">it ascends to Web3.</span>
+          </div>
+        </div>
+      </h2>
+      {/* </ShineBorder> */}
+      <DynamicWidget />
+    </BackgroundBeamsWithCollision>
   );
 };
 
