@@ -3,6 +3,7 @@ import ErrorPage from "@/error-page";
 import NotFoundPage from "@/not-found";
 import Dashboard from "@/screens/Dashboard/Dashboard";
 import { DashboardLayout } from "@/screens/Dashboard/DashboardLayout";
+import ProjectPageLayout from "@/screens/Dashboard/ProjectPageLayout";
 import Home from "@/screens/Home/Home";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -22,8 +23,8 @@ const router = createBrowserRouter([
         element: <Dashboard />,
       },
       {
-        path: ":id",
-        element: <Project />,
+        path: ':id',
+        element: <ProjectPageLayout />,
       },
     ],
   },
