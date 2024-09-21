@@ -49,7 +49,7 @@ const CreateProjectModal = ({
             database. An API will be set up so you can easily interact with your
             new database.
           </p>
-          <form onSubmit={handleSubmit} className="text-white">
+          <form onSubmit={handleSubmit} className="text-white space-y-10">
             <div className="mb-4 flex justify-between items-center">
               <label
                 htmlFor="name"
@@ -62,7 +62,7 @@ const CreateProjectModal = ({
                 id="name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="w-1/2 bg-[#251926]/50 text-white rounded px-3 py-2"
+                className="w-1/2 bg-[#251926]/50 text-white rounded px-3 py-4 outline-none"
                 placeholder="Enter project name"
                 required
               />
@@ -79,7 +79,7 @@ const CreateProjectModal = ({
                 id="password"
                 value={databasePassword}
                 onChange={(e) => setDatabasePassword(e.target.value)}
-                className="w-1/2 bg-[#251926]/50 text-white rounded px-3 py-2"
+                className="w-1/2 bg-[#251926]/50 text-white rounded px-3 py-4 outline-none"
                 placeholder="Enter a strong password"
                 required
               />
@@ -95,7 +95,7 @@ const CreateProjectModal = ({
                 id="chain"
                 value={chain}
                 onChange={(e) => setChain(e.target.value)}
-                className="w-1/2 bg-[#251926]/50 text-white rounded px-3 py-2"
+                className="w-1/2 bg-[#251926]/50 text-white rounded px-3 py-4 outline-none"
               >
                 <option value="Ethereum">Ethereum</option>
                 <option value="Binance Smart Chain">Binance Smart Chain</option>
@@ -114,7 +114,7 @@ const CreateProjectModal = ({
                 id="type"
                 value={type}
                 onChange={(e) => setType(e.target.value)}
-                className="w-1/2 bg-[#251926]/50 text-white rounded px-3 py-2"
+                className="w-1/2 bg-[#251926]/50 text-white rounded px-3 py-4 outline-none"
               >
                 <option value="Relational">Relational</option>
                 <option value="Document">Document</option>
