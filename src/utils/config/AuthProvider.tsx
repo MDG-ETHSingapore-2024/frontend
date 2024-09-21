@@ -4,7 +4,12 @@ import { useAccount } from "wagmi";
 
 const AuthProvider = ({ children }: { children: ReactNode }) => {
   const navigate = useNavigate();
-  const { address } = useAccount();
+  const { address, isConnected } = useAccount();
+
+  if (!isConnected) {
+    navigate('/');
+    return null;
+  }
 
   return <div>{children}</div>;
 };

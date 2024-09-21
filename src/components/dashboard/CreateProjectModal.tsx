@@ -1,5 +1,4 @@
-// src/components/CreateProjectModal.tsx
-
+import axios from "axios";
 import { addNewProject } from "@/utils/redux/project/project.slice";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
@@ -17,24 +16,25 @@ const CreateProjectModal = ({
   const [chain, setChain] = useState<string>("Ethereum");
   const [type, setType] = useState<string>("Relational");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+  
+    try {
+      const response = await axios.post('/api/projects', {
+        name,
+        databasePassword,
+        chain,
+        type,
+      });
+  
+      dispatch(addNewProject(response.data));
+      onClose();
+    } catch (error) {
+      console.error("Error creating project:", error);
 
-    const projectData = {
-      name,
-      databasePassword,
-      chain,
-      type,
-    };
-
-    // api
-    dispatch(
-      addNewProject({
-        //response from api
-      })
-    );
+    }
   };
-
+  
   if (!isOpen) return null;
 
   return (
