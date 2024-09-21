@@ -48,7 +48,8 @@ const ProjectPage: React.FC<ProjectPageProps> = ({
     setIsSidebarOpen(true);
   };
 
-  const handleCreateItem = (name: string, description: string, id: string) => {
+  const handleCreateItem = (fields: { [key: string]: string }) => {
+    const { name } = fields;
     setSidebarItems([...sidebarItems, name]);
     setSelectedItem(name);
   };
@@ -59,6 +60,7 @@ const ProjectPage: React.FC<ProjectPageProps> = ({
 
   return (
     <div className="flex h-screen">
+      {/* Sidebar for collections/tables */}
       <ProjectSidebar
         items={sidebarItems}
         selectedItem={selectedItem}
@@ -74,7 +76,7 @@ const ProjectPage: React.FC<ProjectPageProps> = ({
           <p className="text-xl text-gray-400 mt-1">Project ID: {projectId}</p>
         </div>
 
-        {/* Tabs and Add Button */}
+        {/* Tabs for Documents and Attributes */}
         {!isRelational && (
           <div className="flex items-center justify-between mb-4">
             <div className="flex space-x-8">
@@ -118,6 +120,7 @@ const ProjectPage: React.FC<ProjectPageProps> = ({
           </div>
         )}
 
+        {/* View for documents or attributes */}
         {selectedItem ? (
           <ShineBorder
             borderRadius={8}
@@ -130,12 +133,8 @@ const ProjectPage: React.FC<ProjectPageProps> = ({
                 <CollectionView
                   documents={dummyCollectionData[selectedItem] || []}
                   onAddDocument={() => console.log("Add Document")}
-                  onDeleteDocument={(docId) =>
-                    console.log("Delete Document", docId)
-                  }
-                  onEditDocument={(docId) =>
-                    console.log("Edit Document", docId)
-                  }
+                  onDeleteDocument={(docId) => console.log("Delete Document", docId)}
+                  onEditDocument={(docId) => console.log("Edit Document", docId)}
                   enableCheckboxes={true}
                   actionIcons={{
                     editIcon,
@@ -146,12 +145,8 @@ const ProjectPage: React.FC<ProjectPageProps> = ({
                 <SchemaView
                   schemaAttributes={dummySchemaAttributes || []}
                   onAddAttribute={() => console.log("Add Attribute")}
-                  onDeleteAttribute={(attr) =>
-                    console.log("Delete Attribute", attr)
-                  }
-                  onEditAttribute={(attr) =>
-                    console.log("Edit Attribute", attr)
-                  }
+                  onDeleteAttribute={(attr) => console.log("Delete Attribute", attr)}
+                  onEditAttribute={(attr) => console.log("Edit Attribute", attr)}
                   enableCheckboxes={true}
                 />
               )}
@@ -165,11 +160,7 @@ const ProjectPage: React.FC<ProjectPageProps> = ({
             className="w-full h-full p-0"
           >
             <div className="flex flex-col items-center justify-center h-full">
-              <img
-                src={editLogo}
-                alt="Empty State"
-                className="w-80 h-80 mb-4"
-              />
+              <img src={editLogo} alt="Empty State" className="w-80 h-80 mb-4" />
               <p className="text-white text-lg mb-4">
                 Create a collection to get started
               </p>
@@ -198,10 +189,12 @@ const ProjectPage: React.FC<ProjectPageProps> = ({
         )}
       </div>
 
+      {/* Create Item Sidebar */}
       <CreateItemSidebar
         isOpen={isSidebarOpen}
         onClose={() => setIsSidebarOpen(false)}
-        type={activeTab === "documents" ? "collection" : "attribute"}
+        type={activeTab === "documents" ? "document" : "attribute"}
+        collectionAttributes={dummySchemaAttributes.map((attr) => attr.name)} // For documents/rows
         onCreate={handleCreateItem}
       />
     </div>

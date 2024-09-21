@@ -5,26 +5,325 @@ import editLogo from "@/assets/edit-logo.png"; // Ensure the path to the logo is
 interface CreateItemSidebarProps {
   isOpen: boolean;
   onClose: () => void;
-  type: "table" | "collection";
-  onCreate: (name: string, description: string, id: string) => void;
+  type: "table" | "collection" | "document" | "attribute" | "row" | "column";
+  collectionAttributes?: string[]; // For documents and rows, provide the list of attributes or columns
+  onCreate: (fields: { [key: string]: string }) => void;
 }
 
 const CreateItemSidebar: React.FC<CreateItemSidebarProps> = ({
   isOpen,
   onClose,
   type,
+  collectionAttributes = [],
   onCreate,
 }) => {
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
-  const [itemId, setItemId] = useState("");
+  const [fields, setFields] = useState<{ [key: string]: string }>({
+    name: "",
+    description: "",
+    id: "",
+    type: "",
+    defaultValue: "",
+  });
+
+  const handleInputChange = (field: string, value: string) => {
+    setFields((prev) => ({
+      ...prev,
+      [field]: value,
+    }));
+  };
 
   const handleSubmit = () => {
-    onCreate(name, description, itemId);
-    setName("");
-    setDescription("");
-    setItemId("");
+    onCreate(fields);
+    setFields({ name: "", description: "", id: "", type: "", defaultValue: "" });
     onClose();
+  };
+
+  const renderFields = () => {
+    switch (type) {
+      case "collection":
+        return (
+          <>
+            <div className="relative w-full">
+              <label className="block text-white mb-2">Name</label>
+              <input
+                type="text"
+                value={fields.name}
+                onChange={(e) => handleInputChange("name", e.target.value)}
+                placeholder="Enter collection name"
+                className="relative w-full p-0.3 h-[4rem] bg-transparent text-white placeholder-gray-400 focus:outline-none z-10"
+                style={{
+                  textIndent: "2rem",
+                  borderRadius: "0.5rem",
+                  border: "2px solid transparent",
+                  backgroundImage:
+                    "linear-gradient(black, black), linear-gradient(to right, #B86E9F, #523147)",
+                  backgroundOrigin: "border-box",
+                  backgroundClip: "content-box, border-box",
+                }}
+              />
+            </div>
+            <div className="relative w-full">
+              <label className="block text-white mb-2">Description</label>
+              <input
+                type="text"
+                value={fields.description}
+                onChange={(e) => handleInputChange("description", e.target.value)}
+                placeholder="Enter collection description"
+                className="relative w-full p-0.3 h-[4rem] bg-transparent text-white placeholder-gray-400 focus:outline-none z-10"
+                style={{
+                  textIndent: "2rem",
+                  borderRadius: "0.5rem",
+                  border: "2px solid transparent",
+                  backgroundImage:
+                    "linear-gradient(black, black), linear-gradient(to right, #B86E9F, #523147)",
+                  backgroundOrigin: "border-box",
+                  backgroundClip: "content-box, border-box",
+                }}
+              />
+            </div>
+            <div className="relative w-full">
+              <label className="block text-white mb-2">Collection ID</label>
+              <input
+                type="text"
+                value={fields.id}
+                onChange={(e) => handleInputChange("id", e.target.value)}
+                placeholder="Enter collection ID"
+                className="relative w-full p-0.3 h-[4rem] bg-transparent text-white placeholder-gray-400 focus:outline-none z-10"
+                style={{
+                  textIndent: "2rem",
+                  borderRadius: "0.5rem",
+                  border: "2px solid transparent",
+                  backgroundImage:
+                    "linear-gradient(black, black), linear-gradient(to right, #B86E9F, #523147)",
+                  backgroundOrigin: "border-box",
+                  backgroundClip: "content-box, border-box",
+                }}
+              />
+            </div>
+          </>
+        );
+      case "attribute":
+        return (
+          <>
+            <div className="relative w-full">
+              <label className="block text-white mb-2">Attribute Name</label>
+              <input
+                type="text"
+                value={fields.name}
+                onChange={(e) => handleInputChange("name", e.target.value)}
+                placeholder="Enter attribute name"
+                className="relative w-full p-0.3 h-[4rem] bg-transparent text-white placeholder-gray-400 focus:outline-none z-10"
+                style={{
+                  textIndent: "2rem",
+                  borderRadius: "0.5rem",
+                  border: "2px solid transparent",
+                  backgroundImage:
+                    "linear-gradient(black, black), linear-gradient(to right, #B86E9F, #523147)",
+                  backgroundOrigin: "border-box",
+                  backgroundClip: "content-box, border-box",
+                }}
+              />
+            </div>
+            <div className="relative w-full">
+              <label className="block text-white mb-2">Attribute Type</label>
+              <input
+                type="text"
+                value={fields.type}
+                onChange={(e) => handleInputChange("type", e.target.value)}
+                placeholder="Enter attribute type (e.g., string, int, boolean)"
+                className="relative w-full p-0.3 h-[4rem] bg-transparent text-white placeholder-gray-400 focus:outline-none z-10"
+                style={{
+                  textIndent: "2rem",
+                  borderRadius: "0.5rem",
+                  border: "2px solid transparent",
+                  backgroundImage:
+                    "linear-gradient(black, black), linear-gradient(to right, #B86E9F, #523147)",
+                  backgroundOrigin: "border-box",
+                  backgroundClip: "content-box, border-box",
+                }}
+              />
+            </div>
+            <div className="relative w-full">
+              <label className="block text-white mb-2">Default Value</label>
+              <input
+                type="text"
+                value={fields.defaultValue}
+                onChange={(e) => handleInputChange("defaultValue", e.target.value)}
+                placeholder="Enter default value"
+                className="relative w-full p-0.3 h-[4rem] bg-transparent text-white placeholder-gray-400 focus:outline-none z-10"
+                style={{
+                  textIndent: "2rem",
+                  borderRadius: "0.5rem",
+                  border: "2px solid transparent",
+                  backgroundImage:
+                    "linear-gradient(black, black), linear-gradient(to right, #B86E9F, #523147)",
+                  backgroundOrigin: "border-box",
+                  backgroundClip: "content-box, border-box",
+                }}
+              />
+            </div>
+            <div className="relative w-full">
+              <label className="block text-white mb-2">Collection ID</label>
+              <input
+                type="text"
+                value={fields.id}
+                onChange={(e) => handleInputChange("id", e.target.value)}
+                placeholder="Enter collection ID"
+                className="relative w-full p-0.3 h-[4rem] bg-transparent text-white placeholder-gray-400 focus:outline-none z-10"
+                style={{
+                  textIndent: "2rem",
+                  borderRadius: "0.5rem",
+                  border: "2px solid transparent",
+                  backgroundImage:
+                    "linear-gradient(black, black), linear-gradient(to right, #B86E9F, #523147)",
+                  backgroundOrigin: "border-box",
+                  backgroundClip: "content-box, border-box",
+                }}
+              />
+            </div>
+          </>
+        );
+      case "document":
+        return (
+          <>
+            {collectionAttributes.map((attr, index) => (
+              <div key={index} className="relative w-full">
+                <label className="block text-white mb-2">{attr}</label>
+                <input
+                  type="text"
+                  value={fields[attr] || ""}
+                  onChange={(e) => handleInputChange(attr, e.target.value)}
+                  placeholder={`Enter value for ${attr}`}
+                  className="relative w-full p-0.3 h-[4rem] bg-transparent text-white placeholder-gray-400 focus:outline-none z-10"
+                  style={{
+                    textIndent: "2rem",
+                    borderRadius: "0.5rem",
+                    border: "2px solid transparent",
+                    backgroundImage:
+                      "linear-gradient(black, black), linear-gradient(to right, #B86E9F, #523147)",
+                    backgroundOrigin: "border-box",
+                    backgroundClip: "content-box, border-box",
+                  }}
+                />
+              </div>
+            ))}
+          </>
+        );
+      case "table":
+        return (
+          <>
+            <div className="relative w-full">
+              <label className="block text-white mb-2">Table Name</label>
+              <input
+                type="text"
+                value={fields.name}
+                onChange={(e) => handleInputChange("name", e.target.value)}
+                placeholder="Enter table name"
+                className="relative w-full p-0.3 h-[4rem] bg-transparent text-white placeholder-gray-400 focus:outline-none z-10"
+                style={{
+                  textIndent: "2rem",
+                  borderRadius: "0.5rem",
+                  border: "2px solid transparent",
+                  backgroundImage:
+                    "linear-gradient(black, black), linear-gradient(to right, #B86E9F, #523147)",
+                  backgroundOrigin: "border-box",
+                  backgroundClip: "content-box, border-box",
+                }}
+              />
+            </div>
+            <div className="relative w-full">
+              <label className="block text-white mb-2">Table ID</label>
+              <input
+                type="text"
+                value={fields.id}
+                onChange={(e) => handleInputChange("id", e.target.value)}
+                placeholder="Enter table ID"
+                className="relative w-full p-0.3 h-[4rem] bg-transparent text-white placeholder-gray-400 focus:outline-none z-10"
+                style={{
+                  textIndent: "2rem",
+                  borderRadius: "0.5rem",
+                  border: "2px solid transparent",
+                  backgroundImage:
+                    "linear-gradient(black, black), linear-gradient(to right, #B86E9F, #523147)",
+                  backgroundOrigin: "border-box",
+                  backgroundClip: "content-box, border-box",
+                }}
+              />
+            </div>
+          </>
+        );
+      case "row":
+        return (
+          <>
+            {collectionAttributes.map((column, index) => (
+              <div key={index} className="relative w-full">
+                <label className="block text-white mb-2">{column}</label>
+                <input
+                  type="text"
+                  value={fields[column] || ""}
+                  onChange={(e) => handleInputChange(column, e.target.value)}
+                  placeholder={`Enter value for ${column}`}
+                  className="relative w-full p-0.3 h-[4rem] bg-transparent text-white placeholder-gray-400 focus:outline-none z-10"
+                  style={{
+                    textIndent: "2rem",
+                    borderRadius: "0.5rem",
+                    border: "2px solid transparent",
+                    backgroundImage:
+                      "linear-gradient(black, black), linear-gradient(to right, #B86E9F, #523147)",
+                    backgroundOrigin: "border-box",
+                    backgroundClip: "content-box, border-box",
+                  }}
+                />
+              </div>
+            ))}
+          </>
+        );
+      case "column":
+        return (
+          <>
+            <div className="relative w-full">
+              <label className="block text-white mb-2">Column Name</label>
+              <input
+                type="text"
+                value={fields.name}
+                onChange={(e) => handleInputChange("name", e.target.value)}
+                placeholder="Enter column name"
+                className="relative w-full p-0.3 h-[4rem] bg-transparent text-white placeholder-gray-400 focus:outline-none z-10"
+                style={{
+                  textIndent: "2rem",
+                  borderRadius: "0.5rem",
+                  border: "2px solid transparent",
+                  backgroundImage:
+                    "linear-gradient(black, black), linear-gradient(to right, #B86E9F, #523147)",
+                  backgroundOrigin: "border-box",
+                  backgroundClip: "content-box, border-box",
+                }}
+              />
+            </div>
+            <div className="relative w-full">
+              <label className="block text-white mb-2">Column Type</label>
+              <input
+                type="text"
+                value={fields.type}
+                onChange={(e) => handleInputChange("type", e.target.value)}
+                placeholder="Enter column type (e.g., string, int, boolean)"
+                className="relative w-full p-0.3 h-[4rem] bg-transparent text-white placeholder-gray-400 focus:outline-none z-10"
+                style={{
+                  textIndent: "2rem",
+                  borderRadius: "0.5rem",
+                  border: "2px solid transparent",
+                  backgroundImage:
+                    "linear-gradient(black, black), linear-gradient(to right, #B86E9F, #523147)",
+                  backgroundOrigin: "border-box",
+                  backgroundClip: "content-box, border-box",
+                }}
+              />
+            </div>
+          </>
+        );
+      default:
+        return null;
+    }
   };
 
   return (
@@ -45,65 +344,7 @@ const CreateItemSidebar: React.FC<CreateItemSidebarProps> = ({
                 </>
               )}
               <div className="w-full flex flex-col items-center space-y-6">
-                <div className="relative w-full">
-                  <label className="block text-white mb-2">Name</label>
-                  <input
-                    type="text"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    placeholder={`Enter ${type} name`}
-                    className="relative w-full p-0.3 h-[4rem] bg-transparent text-white placeholder-gray-400 focus:outline-none z-10"
-                    style={{
-                      textIndent: "2rem",
-                      borderRadius: "0.5rem",
-                      border: "2px solid transparent",
-                      backgroundImage:
-                        "linear-gradient(black, black), linear-gradient(to right, #B86E9F, #523147)",
-                      backgroundOrigin: "border-box",
-                      backgroundClip: "content-box, border-box",
-                    }}
-                  />
-                </div>
-                <div className="relative w-full">
-                  <label className="block text-white mb-2">Description</label>
-                  <input
-                    type="text"
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)}
-                    placeholder={`Enter ${type} description`}
-                    className="relative w-full p-0.3  h-[4rem] bg-transparent text-white placeholder-gray-400 focus:outline-none z-10"
-                    style={{
-                      textIndent: "2rem", // This shifts the text 10px to the right
-                      borderRadius: "0.5rem",
-                      border: "2px solid transparent",
-                      backgroundImage:
-                        "linear-gradient(black, black), linear-gradient(to right, #B86E9F, #523147)",
-                      backgroundOrigin: "border-box",
-                      backgroundClip: "content-box, border-box",
-                    }}
-                  />
-                </div>
-                <div className="relative w-full">
-                  <label className="block text-white mb-2">
-                    {type === "table" ? "Table" : "Collection"} ID
-                  </label>
-                  <input
-                    type="text"
-                    value={itemId}
-                    onChange={(e) => setItemId(e.target.value)}
-                    placeholder={`Enter ${type} ID`}
-                    className="relative w-full p-0.3 h-[4rem] bg-transparent text-white placeholder-gray-400 focus:outline-none z-10"
-                    style={{
-                      textIndent: "2rem", // This shifts the text 10px to the right
-                      borderRadius: "0.5rem",
-                      border: "2px solid transparent",
-                      backgroundImage:
-                        "linear-gradient(black, black), linear-gradient(to right, #B86E9F, #523147)",
-                      backgroundOrigin: "border-box",
-                      backgroundClip: "content-box, border-box",
-                    }}
-                  />
-                </div>
+                {renderFields()}
                 <div className="flex justify-between w-full mt-4">
                   <button
                     onClick={onClose}
