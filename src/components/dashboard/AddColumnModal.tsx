@@ -14,6 +14,8 @@ import {
 } from "@/utils/redux/column/addColumn.slice";
 import { RootState } from "@/utils/redux/store";
 import { FormEvent } from "react";
+import { BackendSdk } from "@/utils/services/backendSDK";
+import { BASE_BACKEND_URL } from "@/utils/contants/appInfo";
 
 const postgresTypes = [
   "int2",
@@ -45,9 +47,19 @@ export default function AddColumnComponent({
   const dispatch = useDispatch();
   const state = useSelector((state: RootState) => state.addColumn);
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // Here you would typically dispatch an action to add the column to the database
+    const response = await BackendSdk.putData(
+      `${BASE_BACKEND_URL}/collection/attribute`,
+      {
+        collectionId: 123,
+        type: state.columnType,
+        name: state.columnName,
+        default: state.defaultValue,
+      }
+    );
+    // dispatch()
     console.log("Column data:", state);
     dispatch(resetForm());
   };
