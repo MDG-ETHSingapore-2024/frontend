@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { PaginationView } from './PagtinationView';
-import editIcon from '@/assets/edit-icon.svg';
-import deleteIcon from '@/assets/delete-icon.svg';
+import React, { useState } from "react";
+import { PaginationView } from "./PagtinationView";
+import editIcon from "@/assets/edit-icon.svg";
+import deleteIcon from "@/assets/delete-icon.svg";
 
 interface SchemaViewProps {
   schemaAttributes: { name: string; type: string }[];
@@ -45,7 +45,9 @@ const SchemaView: React.FC<SchemaViewProps> = ({
               <th className="p-2">
                 <input
                   type="checkbox"
-                  checked={selectedAttributes.length === schemaAttributes.length}
+                  checked={
+                    selectedAttributes.length === schemaAttributes.length
+                  }
                   onChange={handleSelectAll}
                 />
               </th>
@@ -57,7 +59,10 @@ const SchemaView: React.FC<SchemaViewProps> = ({
         </thead>
         <tbody>
           <tr>
-            <td colSpan={enableCheckboxes ? 4 : 3} className="border-b border-gray-600"></td>
+            <td
+              colSpan={enableCheckboxes ? 4 : 3}
+              className="border-b border-gray-600"
+            ></td>
           </tr>
           {schemaAttributes.map((attr, index) => (
             <tr key={index} className="border-b border-gray-600">
@@ -94,7 +99,7 @@ const SchemaView: React.FC<SchemaViewProps> = ({
             <td colSpan={enableCheckboxes ? 4 : 3}>
               <div className="w-full flex justify-center py-2">
                 <div className="mt-4">
-                  <PaginationView pages={10} current={1} />
+                  {/* <PaginationView pages={10} current={1} /> */}
                 </div>
               </div>
             </td>

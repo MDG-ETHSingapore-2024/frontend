@@ -34,7 +34,13 @@ const CreateItemSidebar: React.FC<CreateItemSidebarProps> = ({
 
   const handleSubmit = () => {
     onCreate(fields);
-    setFields({ name: "", description: "", id: "", type: "", defaultValue: "" });
+    setFields({
+      name: "",
+      description: "",
+      id: "",
+      type: "",
+      defaultValue: "",
+    });
     onClose();
   };
 
@@ -50,7 +56,7 @@ const CreateItemSidebar: React.FC<CreateItemSidebarProps> = ({
                 value={fields.name}
                 onChange={(e) => handleInputChange("name", e.target.value)}
                 placeholder="Enter collection name"
-                className="relative w-full p-0.3 h-[4rem] bg-transparent text-white placeholder-gray-400 focus:outline-none z-10"
+                className="w-full bg-[#1C1C1C] border-[#2E2E2E] border-[1px] text-white rounded-xl px-3 py-4 outline-none"
                 style={{
                   textIndent: "2rem",
                   borderRadius: "0.5rem",
@@ -67,18 +73,11 @@ const CreateItemSidebar: React.FC<CreateItemSidebarProps> = ({
               <input
                 type="text"
                 value={fields.description}
-                onChange={(e) => handleInputChange("description", e.target.value)}
+                onChange={(e) =>
+                  handleInputChange("description", e.target.value)
+                }
                 placeholder="Enter collection description"
-                className="relative w-full p-0.3 h-[4rem] bg-transparent text-white placeholder-gray-400 focus:outline-none z-10"
-                style={{
-                  textIndent: "2rem",
-                  borderRadius: "0.5rem",
-                  border: "2px solid transparent",
-                  backgroundImage:
-                    "linear-gradient(black, black), linear-gradient(to right, #B86E9F, #523147)",
-                  backgroundOrigin: "border-box",
-                  backgroundClip: "content-box, border-box",
-                }}
+                className="w-full bg-[#1C1C1C] border-[#2E2E2E] border-[1px] text-white rounded-xl px-3 py-4 outline-none"
               />
             </div>
             <div className="relative w-full">
@@ -88,16 +87,7 @@ const CreateItemSidebar: React.FC<CreateItemSidebarProps> = ({
                 value={fields.id}
                 onChange={(e) => handleInputChange("id", e.target.value)}
                 placeholder="Enter collection ID"
-                className="relative w-full p-0.3 h-[4rem] bg-transparent text-white placeholder-gray-400 focus:outline-none z-10"
-                style={{
-                  textIndent: "2rem",
-                  borderRadius: "0.5rem",
-                  border: "2px solid transparent",
-                  backgroundImage:
-                    "linear-gradient(black, black), linear-gradient(to right, #B86E9F, #523147)",
-                  backgroundOrigin: "border-box",
-                  backgroundClip: "content-box, border-box",
-                }}
+                className="w-full bg-[#1C1C1C] border-[#2E2E2E] border-[1px] text-white rounded-xl px-3 py-4 outline-none"
               />
             </div>
           </>
@@ -112,16 +102,7 @@ const CreateItemSidebar: React.FC<CreateItemSidebarProps> = ({
                 value={fields.name}
                 onChange={(e) => handleInputChange("name", e.target.value)}
                 placeholder="Enter attribute name"
-                className="relative w-full p-0.3 h-[4rem] bg-transparent text-white placeholder-gray-400 focus:outline-none z-10"
-                style={{
-                  textIndent: "2rem",
-                  borderRadius: "0.5rem",
-                  border: "2px solid transparent",
-                  backgroundImage:
-                    "linear-gradient(black, black), linear-gradient(to right, #B86E9F, #523147)",
-                  backgroundOrigin: "border-box",
-                  backgroundClip: "content-box, border-box",
-                }}
+                className="w-full bg-[#1C1C1C] border-[#2E2E2E] border-[1px] text-white rounded-xl px-3 py-4 outline-none"
               />
             </div>
             <div className="relative w-full">
@@ -131,16 +112,7 @@ const CreateItemSidebar: React.FC<CreateItemSidebarProps> = ({
                 value={fields.type}
                 onChange={(e) => handleInputChange("type", e.target.value)}
                 placeholder="Enter attribute type (e.g., string, int, boolean)"
-                className="relative w-full p-0.3 h-[4rem] bg-transparent text-white placeholder-gray-400 focus:outline-none z-10"
-                style={{
-                  textIndent: "2rem",
-                  borderRadius: "0.5rem",
-                  border: "2px solid transparent",
-                  backgroundImage:
-                    "linear-gradient(black, black), linear-gradient(to right, #B86E9F, #523147)",
-                  backgroundOrigin: "border-box",
-                  backgroundClip: "content-box, border-box",
-                }}
+                className="w-full bg-[#1C1C1C] border-[#2E2E2E] border-[1px] text-white rounded-xl px-3 py-4 outline-none"
               />
             </div>
             <div className="relative w-full">
@@ -148,18 +120,11 @@ const CreateItemSidebar: React.FC<CreateItemSidebarProps> = ({
               <input
                 type="text"
                 value={fields.defaultValue}
-                onChange={(e) => handleInputChange("defaultValue", e.target.value)}
+                onChange={(e) =>
+                  handleInputChange("defaultValue", e.target.value)
+                }
                 placeholder="Enter default value"
-                className="relative w-full p-0.3 h-[4rem] bg-transparent text-white placeholder-gray-400 focus:outline-none z-10"
-                style={{
-                  textIndent: "2rem",
-                  borderRadius: "0.5rem",
-                  border: "2px solid transparent",
-                  backgroundImage:
-                    "linear-gradient(black, black), linear-gradient(to right, #B86E9F, #523147)",
-                  backgroundOrigin: "border-box",
-                  backgroundClip: "content-box, border-box",
-                }}
+                className="w-full bg-[#1C1C1C] border-[#2E2E2E] border-[1px] text-white rounded-xl px-3 py-4 outline-none"
               />
             </div>
             <div className="relative w-full">
@@ -169,16 +134,7 @@ const CreateItemSidebar: React.FC<CreateItemSidebarProps> = ({
                 value={fields.id}
                 onChange={(e) => handleInputChange("id", e.target.value)}
                 placeholder="Enter collection ID"
-                className="relative w-full p-0.3 h-[4rem] bg-transparent text-white placeholder-gray-400 focus:outline-none z-10"
-                style={{
-                  textIndent: "2rem",
-                  borderRadius: "0.5rem",
-                  border: "2px solid transparent",
-                  backgroundImage:
-                    "linear-gradient(black, black), linear-gradient(to right, #B86E9F, #523147)",
-                  backgroundOrigin: "border-box",
-                  backgroundClip: "content-box, border-box",
-                }}
+                className="w-full bg-[#1C1C1C] border-[#2E2E2E] border-[1px] text-white rounded-xl px-3 py-4 outline-none"
               />
             </div>
           </>
@@ -194,16 +150,7 @@ const CreateItemSidebar: React.FC<CreateItemSidebarProps> = ({
                   value={fields[attr] || ""}
                   onChange={(e) => handleInputChange(attr, e.target.value)}
                   placeholder={`Enter value for ${attr}`}
-                  className="relative w-full p-0.3 h-[4rem] bg-transparent text-white placeholder-gray-400 focus:outline-none z-10"
-                  style={{
-                    textIndent: "2rem",
-                    borderRadius: "0.5rem",
-                    border: "2px solid transparent",
-                    backgroundImage:
-                      "linear-gradient(black, black), linear-gradient(to right, #B86E9F, #523147)",
-                    backgroundOrigin: "border-box",
-                    backgroundClip: "content-box, border-box",
-                  }}
+                  className="w-full bg-[#1C1C1C] border-[#2E2E2E] border-[1px] text-white rounded-xl px-3 py-4 outline-none"
                 />
               </div>
             ))}
@@ -219,16 +166,7 @@ const CreateItemSidebar: React.FC<CreateItemSidebarProps> = ({
                 value={fields.name}
                 onChange={(e) => handleInputChange("name", e.target.value)}
                 placeholder="Enter table name"
-                className="relative w-full p-0.3 h-[4rem] bg-transparent text-white placeholder-gray-400 focus:outline-none z-10"
-                style={{
-                  textIndent: "2rem",
-                  borderRadius: "0.5rem",
-                  border: "2px solid transparent",
-                  backgroundImage:
-                    "linear-gradient(black, black), linear-gradient(to right, #B86E9F, #523147)",
-                  backgroundOrigin: "border-box",
-                  backgroundClip: "content-box, border-box",
-                }}
+                className="w-full bg-[#1C1C1C] border-[#2E2E2E] border-[1px] text-white rounded-xl px-3 py-4 outline-none"
               />
             </div>
             <div className="relative w-full">
@@ -238,16 +176,7 @@ const CreateItemSidebar: React.FC<CreateItemSidebarProps> = ({
                 value={fields.id}
                 onChange={(e) => handleInputChange("id", e.target.value)}
                 placeholder="Enter table ID"
-                className="relative w-full p-0.3 h-[4rem] bg-transparent text-white placeholder-gray-400 focus:outline-none z-10"
-                style={{
-                  textIndent: "2rem",
-                  borderRadius: "0.5rem",
-                  border: "2px solid transparent",
-                  backgroundImage:
-                    "linear-gradient(black, black), linear-gradient(to right, #B86E9F, #523147)",
-                  backgroundOrigin: "border-box",
-                  backgroundClip: "content-box, border-box",
-                }}
+                className="w-full bg-[#1C1C1C] border-[#2E2E2E] border-[1px] text-white rounded-xl px-3 py-4 outline-none"
               />
             </div>
           </>
@@ -263,7 +192,7 @@ const CreateItemSidebar: React.FC<CreateItemSidebarProps> = ({
                   value={fields[column] || ""}
                   onChange={(e) => handleInputChange(column, e.target.value)}
                   placeholder={`Enter value for ${column}`}
-                  className="relative w-full p-0.3 h-[4rem] bg-transparent text-white placeholder-gray-400 focus:outline-none z-10"
+                  className="w-full bg-[#1C1C1C] border-[#2E2E2E] border-[1px] text-white rounded-xl px-3 py-4 outline-none"
                   style={{
                     textIndent: "2rem",
                     borderRadius: "0.5rem",
@@ -288,7 +217,7 @@ const CreateItemSidebar: React.FC<CreateItemSidebarProps> = ({
                 value={fields.name}
                 onChange={(e) => handleInputChange("name", e.target.value)}
                 placeholder="Enter column name"
-                className="relative w-full p-0.3 h-[4rem] bg-transparent text-white placeholder-gray-400 focus:outline-none z-10"
+                className="w-full bg-[#1C1C1C] border-[#2E2E2E] border-[1px] text-white rounded-xl px-3 py-4 outline-none"
                 style={{
                   textIndent: "2rem",
                   borderRadius: "0.5rem",
@@ -307,7 +236,7 @@ const CreateItemSidebar: React.FC<CreateItemSidebarProps> = ({
                 value={fields.type}
                 onChange={(e) => handleInputChange("type", e.target.value)}
                 placeholder="Enter column type (e.g., string, int, boolean)"
-                className="relative w-full p-0.3 h-[4rem] bg-transparent text-white placeholder-gray-400 focus:outline-none z-10"
+                className="w-full bg-[#1C1C1C] border-[#2E2E2E] border-[1px] text-white rounded-xl px-3 py-4 outline-none"
                 style={{
                   textIndent: "2rem",
                   borderRadius: "0.5rem",
@@ -330,8 +259,8 @@ const CreateItemSidebar: React.FC<CreateItemSidebarProps> = ({
     <CSSTransition in={isOpen} timeout={300} classNames="sidebar" unmountOnExit>
       <div className="fixed inset-0 flex justify-end z-50">
         <div className="relative w-[35%] h-full flex flex-col p-[2px]">
-          <div className="absolute inset-0 p-[1px] bg-gradient-to-br from-[#FFFFFF] to-transparent opacity-75 rounded-tl-lg"></div>
-          <div className="relative h-full flex flex-col p-10 bg-black rounded-l-lg">
+          <div className="absolute inset-0 p-[1px]  rounded-tl-lg"></div>
+          <div className="relative h-full flex flex-col p-10 bg-[#101010] border-2 rounded-l-lg">
             <div className="flex flex-col mb-6">
               {type === "collection" && (
                 <>
@@ -354,7 +283,7 @@ const CreateItemSidebar: React.FC<CreateItemSidebarProps> = ({
                   </button>
                   <button
                     onClick={handleSubmit}
-                    className="bg-[#DB1A5A] text-white px-4 py-2 rounded"
+                    className="bg-[#CC0495] text-white px-4 py-2 rounded"
                   >
                     Save
                   </button>

@@ -41,7 +41,9 @@ export const DashboardLayout = () => {
     );
   return (
     <div className="h-screen">
-      <Navbar />
+      <div className="w-full bg-[#1C1C1C] border-[#2E2E2E] border-[1px] text-white  px-3 outline-none">
+        <Navbar />
+      </div>
       <Outlet />
     </div>
   );
