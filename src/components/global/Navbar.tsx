@@ -15,7 +15,7 @@ const Navbar = () => {
           <img src={logo} alt="logo" />
         </span>
         <Link to={"/"}>HOME</Link>
-        <Link to={"/impact"}>IMPACT</Link>
+        <a href="#impact">IMPACT</a>
         <Link to={"/about"}>ABOUT</Link>
       </div>
       {isConnected ? (
