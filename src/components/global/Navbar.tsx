@@ -21,7 +21,7 @@ const Navbar = () => {
       {isConnected ? (
         <DynamicWidget />
       ) : (
-        <DynamicConnectButton buttonClassName="bg-white px-2 py-1 text-[#CC0595] rounded-md border-2 border-[#FF45CA]">
+        <DynamicConnectButton buttonClassName="bg-white px-3 py-2 font-semibold text-[#CC0595] rounded-2xl border-2 border-[#FF45CA]">
           ⌐◨-◨ Connect wallet
         </DynamicConnectButton>
       )}

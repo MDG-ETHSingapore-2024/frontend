@@ -9,7 +9,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
       className="w-96 h-56 bg-[#232323] rounded-lg"
     >
       <div className="h-full rounded-lg p-3 flex flex-col justify-between hover:bg-project-hover bg-project transition-all ease-linear">
-        <h1> ⌐◨-◨ {project.name}</h1>
+        <h1> ⌐◨-◨ &nbsp; {project.name}</h1>
         <h2 className="text-end">{project.chain}</h2>
       </div>
     </Link>
