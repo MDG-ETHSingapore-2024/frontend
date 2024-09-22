@@ -17,7 +17,7 @@ const projectsSlice = createSlice({
       state.activeProjectId = action.payload;
     },
     addNewProject: (state, action) => {
-      state.projects = [...state.projects, action.payload];
+      state.projects = [action.payload, ...state.projects];
     },
     deleteProject: (state, action) => {
       if (state.projects.length > 0) {

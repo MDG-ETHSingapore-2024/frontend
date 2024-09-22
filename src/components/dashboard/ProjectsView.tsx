@@ -2,7 +2,7 @@ import { Project } from "@/utils/types";
 import ProjectCard from "./ProjectCard";
 
 import { PaginationView } from "./PagtinationView";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CreateProjectModal from "./CreateProjectModal";
 const ProjectView = ({
   projects,
@@ -12,6 +12,9 @@ const ProjectView = ({
   index: number;
 }) => {
   const [isNewProject, setIsNewProject] = useState<boolean>(false);
+  useEffect(() => {
+    console.log(projects);
+  }, [projects]);
   return (
     <div className="flex px-32 py-10 h-full flex-col gap-10">
       <div className="flex justify-between">

@@ -6,7 +6,7 @@ export const AnimatedConnectButton = () => {
   const [isConnect, setIsConnect] = useState<boolean>(false);
   const handleClick = (e: any) => {
     e.stopPropagation();
-    const scalar = 2;
+    const scalar = 4;
     const noogles = ["⌐🎇-🎇", "⌐◨-◨", "⌐💀-💀", "⌐❍-❍", "⌐⍥-⍥"];
     const colors = ["red", "yellow", "red", "white", "blue"];
     const shapes = noogles.map((noggle, index) =>

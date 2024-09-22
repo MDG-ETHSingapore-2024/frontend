@@ -15,7 +15,7 @@ import {
 
 interface ProjectPageProps {
   projectId: string;
-  projectName: string;
+  projectName?: string;
   isRelational: boolean;
 }
 
@@ -56,7 +56,14 @@ const ProjectPage: React.FC<ProjectPageProps> = ({
   const handleTabChange = (tab: "documents" | "attributes") => {
     setActiveTab(tab);
   };
-
+  const getCollection = (collection: string) => {
+    if (collection == "usersCollection")
+      return dummyCollectionData.usersCollection;
+    if (collection == "ordersCollection")
+      return dummyCollectionData.ordersCollection;
+    if (collection == "productsCollection")
+      return dummyCollectionData.productsCollection;
+  };
   return (
     <div className="flex h-screen">
       {/* Sidebar for collections/tables */}
@@ -121,10 +128,10 @@ const ProjectPage: React.FC<ProjectPageProps> = ({
 
         {/* View for documents or attributes */}
         {selectedItem ? (
-          <div className=" bg-transparent border-none overflow-hidden w-full bg-[#1C1C1C] border-[#2E2E2E] border-[1px] text-white rounded-xl px-3 py-4 outline-none">
+          <div className=" border-none overflow-hidden w-full bg-[#1C1C1C] border-[#2E2E2E] border-[1px] text-white rounded-xl px-3 py-4 outline-none">
             {activeTab === "documents" ? (
               <CollectionView
-                documents={dummyCollectionData[selectedItem] || []}
+                documents={getCollection(selectedItem) as any[]}
                 onAddDocument={() => console.log("Add Document")}
                 onDeleteDocument={(docId) =>
                   console.log("Delete Document", docId)

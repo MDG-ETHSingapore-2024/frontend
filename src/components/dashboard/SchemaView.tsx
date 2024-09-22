@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { PaginationView } from "./PagtinationView";
 import editIcon from "@/assets/edit-icon.svg";
 import deleteIcon from "@/assets/delete-icon.svg";
 
@@ -13,7 +12,7 @@ interface SchemaViewProps {
 
 const SchemaView: React.FC<SchemaViewProps> = ({
   schemaAttributes,
-  onAddAttribute,
+  // onAddAttribute,
   onDeleteAttribute,
   onEditAttribute,
   enableCheckboxes = false,
@@ -57,7 +56,7 @@ const SchemaView: React.FC<SchemaViewProps> = ({
             <th className="p-2 text-left">Actions</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className="">
           <tr>
             <td
               colSpan={enableCheckboxes ? 4 : 3}
@@ -65,7 +64,7 @@ const SchemaView: React.FC<SchemaViewProps> = ({
             ></td>
           </tr>
           {schemaAttributes.map((attr, index) => (
-            <tr key={index} className="border-b border-gray-600">
+            <tr key={index} className="border-b border-gray-600/10">
               {enableCheckboxes && (
                 <td className="p-2 justify-center flex">
                   <input

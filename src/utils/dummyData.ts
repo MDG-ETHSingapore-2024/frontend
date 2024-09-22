@@ -309,7 +309,43 @@ export const dummyCollections = [
   "productsCollection",
 ];
 
-export const dummyCollectionData = {
+// User type
+export type User = {
+  _id: string;
+  name: string;
+  email: string;
+  age: number;
+  isActive: boolean;
+};
+
+// Order type
+export type Order = {
+  _id: string;
+  userId: string;
+  product: string;
+  quantity: number;
+  totalAmount: number;
+  status: "Delivered" | "Shipped" | "Processing" | "Pending";
+};
+
+// Product type
+export type Product = {
+  _id: string;
+  name: string;
+  price: number;
+  category: string;
+  inStock: number;
+  rating: number;
+};
+
+// Collection data type
+export type CollectionData = {
+  usersCollection: User[];
+  ordersCollection: Order[];
+  productsCollection: Product[];
+};
+
+export const dummyCollectionData: CollectionData = {
   usersCollection: [
     {
       _id: "1",

@@ -1,9 +1,6 @@
-import axios from "axios";
 import { addNewProject } from "@/utils/redux/project/project.slice";
-import React, { useState } from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { BackendSdk } from "@/utils/services/backendSDK";
-import { BASE_BACKEND_URL } from "@/utils/contants/appInfo";
 
 const CreateProjectModal = ({
   isOpen,
@@ -32,17 +29,25 @@ const CreateProjectModal = ({
     e.preventDefault();
 
     try {
-      const response = await BackendSdk.postData(
-        `${BASE_BACKEND_URL}/projects`,
-        {
+      // const response = await BackendSdk.postData(
+      //   `${BASE_BACKEND_URL}/projects`,
+      //   {
+      //     name,
+      //     databasePassword,
+      //     chain,
+      //     type,
+      //   }
+      // );
+
+      dispatch(
+        addNewProject({
           name,
           databasePassword,
           chain,
           type,
-        }
+          icon,
+        })
       );
-
-      dispatch(addNewProject(response.data));
       onClose();
     } catch (error) {
       console.error("Error creating project:", error);
@@ -165,7 +170,9 @@ const CreateProjectModal = ({
                 className="w-1/2 bg-[#1C1C1C] border-[#2E2E2E] border-[1px] text-white rounded-xl px-3 py-4 outline-none"
               >
                 {noogles.map((icon, idx) => (
-                  <option value={`${icon}_${idx}`}>{icon}</option>
+                  <option key={idx} value={`${icon}_${idx}`}>
+                    {icon}
+                  </option>
                 ))}
               </select>
             </div>

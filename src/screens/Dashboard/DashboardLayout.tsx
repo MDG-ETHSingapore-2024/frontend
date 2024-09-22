@@ -10,7 +10,7 @@ export const DashboardLayout = () => {
   const handleHomeClick = () => {
     navigate("/");
   };
-  const { isConnected, address } = useAccount();
+  const { isConnected } = useAccount();
   const [add, setAdd] = useState<string>("");
   useEffect(() => {
     const getdynAdd = async () => {

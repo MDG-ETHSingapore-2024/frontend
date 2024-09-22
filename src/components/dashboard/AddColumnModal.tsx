@@ -1,7 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
 import {
-  setSelectedSchema,
-  setSelectedTable,
   setColumnName,
   setColumnType,
   setIsPrimaryKey,
@@ -50,15 +48,12 @@ export default function AddColumnComponent({
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // Here you would typically dispatch an action to add the column to the database
-    const response = await BackendSdk.putData(
-      `${BASE_BACKEND_URL}/collection/attribute`,
-      {
-        collectionId: 123,
-        type: state.columnType,
-        name: state.columnName,
-        default: state.defaultValue,
-      }
-    );
+    await BackendSdk.putData(`${BASE_BACKEND_URL}/collection/attribute`, {
+      collectionId: 123,
+      type: state.columnType,
+      name: state.columnName,
+      default: state.defaultValue,
+    });
     // dispatch()
     console.log("Column data:", state);
     dispatch(resetForm());

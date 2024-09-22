@@ -47,7 +47,7 @@ const addColumnSlice = createSlice({
     setDescription: (state, action) => {
       state.description = action.payload;
     },
-    resetForm: (state) => {
+    resetForm: () => {
       return initialState;
     },
   },

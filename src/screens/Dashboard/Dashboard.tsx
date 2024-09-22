@@ -1,6 +1,5 @@
 import ProjectView from "@/components/dashboard/ProjectsView";
 import { dummyProjects } from "@/utils/dummy";
-import { useProjects } from "@/utils/hooks/useProjects";
 import { useLocation } from "react-router-dom";
 
 const Dashboard = () => {

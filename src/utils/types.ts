@@ -3,4 +3,5 @@ export type Project = {
   name: string;
   chain: string;
   chainId?: number;
+  icon?: string;
 };

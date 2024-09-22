@@ -16,7 +16,7 @@ export const wagmiConfig = createConfig({
   },
 });
 
-export const WalletWagmiProvider = ({ children, session }: any) => {
+export const WalletWagmiProvider = ({ children }: any) => {
   return (
     <DynamicContextProvider
       settings={{

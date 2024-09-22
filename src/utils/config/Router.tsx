@@ -1,4 +1,3 @@
-import Project from "@/components/dashboard/Project";
 import ErrorPage from "@/error-page";
 import NotFoundPage from "@/not-found";
 import Dashboard from "@/screens/Dashboard/Dashboard";
@@ -23,7 +22,7 @@ const router = createBrowserRouter([
         element: <Dashboard />,
       },
       {
-        path: ':id',
+        path: ":id",
         element: <ProjectPageLayout />,
       },
     ],

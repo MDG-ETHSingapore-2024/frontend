@@ -257,7 +257,7 @@ const CreateItemSidebar: React.FC<CreateItemSidebarProps> = ({
 
   return (
     <CSSTransition in={isOpen} timeout={300} classNames="sidebar" unmountOnExit>
-      <div className="fixed inset-0 flex justify-end z-50">
+      <div className="fixed inset-0 flex justify-end z-50 overflow-y-scroll">
         <div className="relative w-[35%] h-full flex flex-col p-[2px]">
           <div className="absolute inset-0 p-[1px]  rounded-tl-lg"></div>
           <div className="relative h-full flex flex-col p-10 bg-[#101010] border-2 rounded-l-lg">
@@ -272,7 +272,7 @@ const CreateItemSidebar: React.FC<CreateItemSidebarProps> = ({
                   </h2>
                 </>
               )}
-              <div className="w-full flex flex-col items-center space-y-6">
+              <div className="w-full h-[80vh] flex flex-col items-center space-y-6 overflow-y-scroll">
                 {renderFields()}
                 <div className="flex justify-between w-full mt-4">
                   <button

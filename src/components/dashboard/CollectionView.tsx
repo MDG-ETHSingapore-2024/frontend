@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { PaginationView } from "./PagtinationView";
 
 interface CollectionViewProps {
-  documents: { [key: string]: any }[];
+  documents: any[];
   onAddDocument: () => void;
   onDeleteDocument: (documentId: string) => void;
   onEditDocument: (documentId: string) => void;
@@ -12,7 +11,7 @@ interface CollectionViewProps {
 
 const CollectionView: React.FC<CollectionViewProps> = ({
   documents = [], // Default to empty array if undefined
-  onAddDocument,
+  // onAddDocument,
   onDeleteDocument,
   onEditDocument,
   enableCheckboxes = false,
