@@ -7,30 +7,52 @@ import { Navigate } from "react-router-dom";
 import { useAccount } from "wagmi";
 import confetti from "canvas-confetti";
 import { useState } from "react";
+import Navbar from "@/components/global/Navbar";
+import Marquee from "@/components/magicui/marquee";
+import Globe from "@/components/magicui/globe";
 
 const Main = () => {
   const { address } = useAccount();
-
+  const bandText = [
+    "DECENTRALISED",
+    "INFRASTRUCTURE",
+    "FOR",
+    "THE",
+    "GREATER",
+    "GOOD",
+  ];
   if (address) return <Navigate to={"/dashboard"} />;
   return (
-    <BackgroundBeamsWithCollision className="min-h-screen w-full flex flex-col">
-      {/* <ShineBorder
-        className="relative flex h-screen overflow-y-scroll w-full flex-col items-center justify-center border bg-background md:shadow-xl"
-        color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
-      > */}
-      <h2 className="text-2xl relative z-20 md:text-4xl lg:text-7xl font-bold text-center text-black dark:text-white font-sans tracking-tight">
-        Where your data doesn’t just sit <br />
-        <div className="relative mx-auto inline-block w-max [filter:drop-shadow(0px_1px_3px_rgba(27,_37,_80,_0.14))]">
-          <div className="absolute left-0 top-[1px] bg-clip-text bg-no-repeat text-transparent bg-gradient-to-r py-4 from-purple-500 via-violet-500 to-pink-500 [text-shadow:0_0_rgba(0,0,0,0.1)]">
-            <span className="">it ascends to Web3.</span>
+    <main>
+      <section className="bg-[#CC0595] h-screen flex flex-col justify-between">
+        <Navbar />
+        <div className="h-full flex flex-col items-center relative pt-[7rem]">
+          <div className="flex flex-col items-center gap-7">
+            <span className="text-[#FDFDFD]/80 capitalize border-[1px] border-[#FDFDFD]/30 px-3 py-1 rounded-full">
+              NOUNISH PRODUCT
+            </span>
+            <div className="flex flex-col w-full items-center text-6xl">
+              <span className="text-white/70">WE ARE</span>
+              <span>RUPABASE</span>
+            </div>
+            <h1>WHERE DATA MEETS DECENTRALISATION</h1>
+            <ConfettiEmoji />
           </div>
-          <div className="relative bg-clip-text text-transparent bg-no-repeat bg-gradient-to-r from-purple-500 via-violet-500 to-pink-500 py-4">
-            <span className="">it ascends to Web3.</span>
+          <div className="relative flex h-full w-full overflow-hidden ">
+            <Globe className="top-24 w-full" />
           </div>
         </div>
-      </h2>
-      <ConfettiEmoji />
-    </BackgroundBeamsWithCollision>
+        <Marquee
+          pauseOnHover
+          className="[--duration:5s] w-full border-t-[1px] border-white/50 gap-0"
+        >
+          {bandText.map((text) => (
+            <h1>{text}</h1>
+          ))}
+          <span className="text-[#FDFDFD]/40">⌐◨-◨</span>
+        </Marquee>
+      </section>
+    </main>
   );
 };
 
@@ -90,9 +112,9 @@ export function ConfettiEmoji() {
     <div className="relative justify-center">
       <button
         onClick={handleClick}
-        className="bg-white text-black py-2 px-3 rounded-xl"
+        className="bg-white px-2 py-1 text-[#CC0595] rounded-md border-2 border-[#FF45CA]"
       >
-        Connect
+        ⌐◨-◨ Connect wallet
       </button>
       {isConnect && (
         <div className="fixed inset-0 z-20 bg-[#232323] bg-opacity-50 flex items-center justify-center backdrop-blur-sm">
@@ -104,7 +126,7 @@ export function ConfettiEmoji() {
               Cancel
             </button>
             <DynamicEmbeddedAuthFlow />
-            <DynamicWidget />
+            {/* <DynamicWidget /> */}
           </div>
         </div>
       )}
