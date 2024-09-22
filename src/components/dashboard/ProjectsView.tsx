@@ -28,7 +28,7 @@ const ProjectView = ({
           {/* </span> */}
         </button>
       </div>
-      <div className="flex flex-row flex-wrap gap-5 justify-between items-center">
+      <div className="flex flex-row flex-wrap gap-5 justify-center items-center">
         {projects.slice((index - 1) * 6, index * 6).map((project) => (
           <ProjectCard key={project.id} project={project} />
         ))}

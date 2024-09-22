@@ -24,7 +24,7 @@ export const useProjects = () => {
 
   useEffect(() => {
     if (!projects) fetchProjects();
-  });
+  }, []);
 
   return {
     projects: projects ? projects : localProjects,
