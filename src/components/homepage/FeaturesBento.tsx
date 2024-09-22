@@ -1,9 +1,7 @@
-import { CalendarIcon, FileTextIcon } from "@radix-ui/react-icons";
-import { BellIcon, Share2Icon } from "lucide-react";
-
+import { BadgeCheckIcon, Clock10Icon, HeartHandshakeIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { BentoCard, BentoGrid } from "@/components/magicui/bento-grid";
 import Marquee from "@/components/magicui/marquee";
+import { BentoCard, BentoGrid } from "../magicui/bento-grid";
 
 const files = [
   {
@@ -28,11 +26,76 @@ const files = [
   },
 ];
 
+const developerTools = [
+  {
+    name: "VS Code",
+    description: "Popular code editor with extensive plugin support",
+  },
+  {
+    name: "Git",
+    description: "Distributed version control system for tracking changes",
+  },
+  { name: "npm", description: "Package manager for JavaScript and Node.js" },
+  {
+    name: "Docker",
+    description: "Platform for developing, shipping, and running applications",
+  },
+  { name: "Postman", description: "API development and testing tool" },
+];
+
+const blockchains = [
+  {
+    name: "Ethereum",
+    description:
+      "Decentralized, open-source blockchain with smart contract functionality",
+  },
+  {
+    name: "Solana",
+    description:
+      "High-performance blockchain supporting smart contracts and DeFi",
+  },
+  {
+    name: "Polkadot",
+    description:
+      "Multi-chain network enabling interoperability between different blockchains",
+  },
+  {
+    name: "Cardano",
+    description:
+      "Blockchain platform for changemakers, innovators, and visionaries",
+  },
+  {
+    name: "Avalanche",
+    description:
+      "Open-source platform for launching decentralized finance applications",
+  },
+];
+
+const databaseSystems = [
+  {
+    name: "PostgreSQL",
+    description: "Open-source relational database management system",
+  },
+  { name: "MongoDB", description: "Document-oriented NoSQL database" },
+  {
+    name: "Redis",
+    description:
+      "In-memory data structure store used as database, cache, and message broker",
+  },
+  {
+    name: "Cassandra",
+    description:
+      "Distributed NoSQL database for handling large amounts of data",
+  },
+  { name: "Neo4j", description: "Graph database management system" },
+];
+
 const features = [
   {
-    Icon: FileTextIcon,
-    name: "Save your files",
-    description: "We automatically save your files as you type.",
+    Icon: HeartHandshakeIcon,
+    name: "Driving Adoption",
+    description:
+      "Rupabase lowers the entry barrier for developers to build data-driven dApps",
     href: "#",
     cta: "Learn more",
     className: "col-span-3 lg:col-span-1",
@@ -65,36 +128,100 @@ const features = [
     ),
   },
   {
-    Icon: BellIcon,
-    name: "Notifications",
-    description: "Get notified when something happens.",
+    Icon: BadgeCheckIcon,
+    name: "Improving Developer Experience",
+    description:
+      "Streamlines the development process and reduces time-to-market for dApps",
     href: "#",
     cta: "Learn more",
     className: "col-span-3 lg:col-span-2",
     background: (
-      <button className="absolute right-2 top-4 h-[300px] w-full border-none transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] group-hover:scale-105" />
+      <Marquee
+        pauseOnHover
+        className="absolute top-10 [--duration:25s] [mask-image:linear-gradient(to_top,transparent_40%,#000_100%)] "
+      >
+        {developerTools.map((tool, idx) => (
+          <figure
+            key={idx}
+            className={cn(
+              "relative w-40 cursor-pointer overflow-hidden rounded-xl border p-4 mx-2",
+              "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
+              "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]",
+              "transform-gpu blur-[1px] transition-all duration-300 ease-out hover:blur-none"
+            )}
+          >
+            <figcaption className="text-sm font-medium dark:text-white">
+              {tool.name}
+            </figcaption>
+            <blockquote className="mt-2 text-xs">{tool.description}</blockquote>
+          </figure>
+        ))}
+      </Marquee>
     ),
   },
   {
-    Icon: Share2Icon,
-    name: "Integrations",
-    description: "Supports 100+ integrations and counting.",
+    Icon: HeartHandshakeIcon,
+    name: "Future Vision",
+    description:
+      "Leverage Rupabase's data availability and rollup capabilities to host decentralized databases & empower the Web3 developer community.",
     href: "#",
     cta: "Learn more",
     className: "col-span-3 lg:col-span-2",
     background: (
-      <button className="absolute right-2 top-4 h-[300px] border-none transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] group-hover:scale-105" />
+      <Marquee
+        pauseOnHover
+        className="absolute top-10 [--duration:30s] [mask-image:linear-gradient(to_top,transparent_40%,#000_100%)] "
+      >
+        {blockchains.map((blockchain, idx) => (
+          <figure
+            key={idx}
+            className={cn(
+              "relative w-48 cursor-pointer overflow-hidden rounded-xl border p-4 mx-2",
+              "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
+              "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]",
+              "transform-gpu blur-[1px] transition-all duration-300 ease-out hover:blur-none"
+            )}
+          >
+            <figcaption className="text-sm font-medium dark:text-white">
+              {blockchain.name}
+            </figcaption>
+            <blockquote className="mt-2 text-xs">
+              {blockchain.description}
+            </blockquote>
+          </figure>
+        ))}
+      </Marquee>
     ),
   },
   {
-    Icon: CalendarIcon,
-    name: "Calendar",
-    description: "Use the calendar to filter your files by date.",
+    Icon: Clock10Icon,
+    name: "Promoting Interoperability",
+    description: "Supports multiple database systems and dApp frameworks",
     className: "col-span-3 lg:col-span-1",
     href: "#",
     cta: "Learn more",
     background: (
-      <button className="absolute right-0 top-10 origin-top rounded-md border transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_40%,#000_100%)] group-hover:scale-105" />
+      <Marquee
+        pauseOnHover
+        className="absolute top-10 [--duration:20s] [mask-image:linear-gradient(to_top,transparent_40%,#000_100%)] "
+      >
+        {databaseSystems.map((db, idx) => (
+          <figure
+            key={idx}
+            className={cn(
+              "relative w-36 cursor-pointer overflow-hidden rounded-xl border p-4 mx-2",
+              "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
+              "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]",
+              "transform-gpu blur-[1px] transition-all duration-300 ease-out hover:blur-none"
+            )}
+          >
+            <figcaption className="text-sm font-medium dark:text-white">
+              {db.name}
+            </figcaption>
+            <blockquote className="mt-2 text-xs">{db.description}</blockquote>
+          </figure>
+        ))}
+      </Marquee>
     ),
   },
 ];

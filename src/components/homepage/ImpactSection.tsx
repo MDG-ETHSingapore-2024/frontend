@@ -7,8 +7,8 @@ const ImpactSection = () => {
       id="impact"
     >
       <div className="flex flex-col w-full items-center text-4xl">
-        <span className="text-white/70">OUR</span>
-        <span>IMPACT</span>
+        <span className="text-white/70">KEY</span>
+        <span>BENEFIT</span>
       </div>
       <FeaturesBento />
     </section>
