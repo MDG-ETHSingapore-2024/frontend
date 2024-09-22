@@ -17,7 +17,7 @@ const ProjectSidebar: React.FC<ProjectSidebarProps> = ({
   selectedItem,
 }) => {
   return (
-    <div className="w-1/6 h-full text-white p-4">
+    <div className="w-1/6 h-full p-4  bg-[#1C1C1C] border-[#2E2E2E] border-[1px] text-white px-3 py-4 outline-none">
       <h2 className="text-xl font-semibold mb-4">
         {type === "table" ? "Tables" : "Collections"}
       </h2>

@@ -30,7 +30,7 @@ export function PaginationView({
             <PaginationItem key={index}>
               <Link to={"/dashboard"} state={{ page: index + 1 }}>
                 <PaginationLink
-                  className={`${index + 1 == current ? "bg-[#251926]" : ""}`}
+                  className={`${index + 1 == current ? "bg-[#CC0495]" : ""}`}
                   isActive={index + 1 == current}
                 >
                   {index + 1}

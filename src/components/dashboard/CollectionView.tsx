@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { PaginationView } from './PagtinationView';
+import React, { useState } from "react";
+import { PaginationView } from "./PagtinationView";
 
 interface CollectionViewProps {
   documents: { [key: string]: any }[];
@@ -11,7 +11,7 @@ interface CollectionViewProps {
 }
 
 const CollectionView: React.FC<CollectionViewProps> = ({
-  documents = [],  // Default to empty array if undefined
+  documents = [], // Default to empty array if undefined
   onAddDocument,
   onDeleteDocument,
   onEditDocument,
@@ -62,7 +62,10 @@ const CollectionView: React.FC<CollectionViewProps> = ({
         </thead>
         <tbody>
           <tr>
-            <td colSpan={documentKeys.length + (enableCheckboxes ? 2 : 1)} className="border-b border-gray-600"></td>
+            <td
+              colSpan={documentKeys.length + (enableCheckboxes ? 2 : 1)}
+              className="border-b border-gray-600"
+            ></td>
           </tr>
           {documents.map((doc, index) => (
             <tr key={index} className="border-b border-gray-600">
@@ -85,13 +88,21 @@ const CollectionView: React.FC<CollectionViewProps> = ({
                   onClick={() => onEditDocument(doc._id)}
                   className="text-blue-500"
                 >
-                  <img src={actionIcons?.editIcon} alt="Edit" className="w-4 h-4" />
+                  <img
+                    src={actionIcons?.editIcon}
+                    alt="Edit"
+                    className="w-4 h-4"
+                  />
                 </button>
                 <button
                   onClick={() => onDeleteDocument(doc._id)}
                   className="text-red-500 ml-4"
                 >
-                  <img src={actionIcons?.deleteIcon} alt="Delete" className="w-4 h-4" />
+                  <img
+                    src={actionIcons?.deleteIcon}
+                    alt="Delete"
+                    className="w-4 h-4"
+                  />
                 </button>
               </td>
             </tr>
@@ -102,7 +113,7 @@ const CollectionView: React.FC<CollectionViewProps> = ({
             <td colSpan={documentKeys.length + (enableCheckboxes ? 2 : 1)}>
               <div className="w-full flex justify-center py-2">
                 <div className="mt-4">
-                  <PaginationView pages={10} current={1} />
+                  {/* <PaginationView pages={10} current={1} /> */}
                 </div>
               </div>
             </td>

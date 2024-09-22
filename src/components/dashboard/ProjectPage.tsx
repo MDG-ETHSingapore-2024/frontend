@@ -12,7 +12,6 @@ import {
   dummyCollections,
   dummySchemaAttributes,
 } from "@/utils/dummyData";
-import ShineBorder from "../magicui/shine-border";
 
 interface ProjectPageProps {
   projectId: string;
@@ -99,7 +98,7 @@ const ProjectPage: React.FC<ProjectPageProps> = ({
             </div>
             <button
               onClick={handleAddItem}
-              className="h-[40px] bg-[#DB1A5A] text-white px-[13px] py-[4px] flex items-center gap-2 rounded hover:opacity-90"
+              className="h-[40px] bg-[#CC0495] text-white px-[13px] py-[4px] flex items-center gap-2 rounded hover:opacity-90"
             >
               <svg
                 className="w-5 h-5"
@@ -122,82 +121,60 @@ const ProjectPage: React.FC<ProjectPageProps> = ({
 
         {/* View for documents or attributes */}
         {selectedItem ? (
-          <ShineBorder
-            borderRadius={8}
-            borderWidth={2}
-            color={["#EC4F9D", "#DB1A5A"]}
-            className="w-full flex flex-col"
-          >
-            <div className="w-full bg-transparent border-none rounded overflow-hidden">
-              {activeTab === "documents" ? (
-                <CollectionView
-                  documents={dummyCollectionData[selectedItem] || []}
-                  onAddDocument={() => console.log("Add Document")}
-                  onDeleteDocument={(docId) =>
-                    console.log("Delete Document", docId)
-                  }
-                  onEditDocument={(docId) =>
-                    console.log("Edit Document", docId)
-                  }
-                  enableCheckboxes={true}
-                  actionIcons={{
-                    editIcon,
-                    deleteIcon,
-                  }}
-                />
-              ) : (
-                <SchemaView
-                  schemaAttributes={dummySchemaAttributes || []}
-                  onAddAttribute={() => console.log("Add Attribute")}
-                  onDeleteAttribute={(attr) =>
-                    console.log("Delete Attribute", attr)
-                  }
-                  onEditAttribute={(attr) =>
-                    console.log("Edit Attribute", attr)
-                  }
-                  enableCheckboxes={true}
-                />
-              )}
-            </div>
-          </ShineBorder>
-        ) : (
-          <ShineBorder
-            borderRadius={8}
-            borderWidth={2}
-            color={["#EC4F9D", "#DB1A5A"]}
-            className="w-full h-full p-0"
-          >
-            <div className="flex flex-col items-center justify-center h-full">
-              <img
-                src={editLogo}
-                alt="Empty State"
-                className="w-80 h-80 mb-4"
+          <div className=" bg-transparent border-none overflow-hidden w-full bg-[#1C1C1C] border-[#2E2E2E] border-[1px] text-white rounded-xl px-3 py-4 outline-none">
+            {activeTab === "documents" ? (
+              <CollectionView
+                documents={dummyCollectionData[selectedItem] || []}
+                onAddDocument={() => console.log("Add Document")}
+                onDeleteDocument={(docId) =>
+                  console.log("Delete Document", docId)
+                }
+                onEditDocument={(docId) => console.log("Edit Document", docId)}
+                enableCheckboxes={true}
+                actionIcons={{
+                  editIcon,
+                  deleteIcon,
+                }}
               />
-              <p className="text-white text-lg mb-4">
-                Create a collection to get started
-              </p>
-              <button
-                onClick={handleAddItem}
-                className="bg-transparent border border-white text-white px-4 py-2 rounded flex items-center gap-2"
+            ) : (
+              <SchemaView
+                schemaAttributes={dummySchemaAttributes || []}
+                onAddAttribute={() => console.log("Add Attribute")}
+                onDeleteAttribute={(attr) =>
+                  console.log("Delete Attribute", attr)
+                }
+                onEditAttribute={(attr) => console.log("Edit Attribute", attr)}
+                enableCheckboxes={true}
+              />
+            )}
+          </div>
+        ) : (
+          <div className="flex flex-col items-center justify-center h-full">
+            <img src={editLogo} alt="Empty State" className="w-80 h-80 mb-4" />
+            <p className="text-white text-lg mb-4">
+              Create a collection to get started
+            </p>
+            <button
+              onClick={handleAddItem}
+              className="bg-transparent border border-white text-white px-4 py-2 rounded flex items-center gap-2"
+            >
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <svg
-                  className="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M12 4v16m8-8H4"
-                  ></path>
-                </svg>
-                Create Collection
-              </button>
-            </div>
-          </ShineBorder>
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M12 4v16m8-8H4"
+                ></path>
+              </svg>
+              Create Collection
+            </button>
+          </div>
         )}
       </div>
 

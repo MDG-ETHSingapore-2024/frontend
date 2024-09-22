@@ -81,7 +81,7 @@ export default function AddColumnComponent({
                     type="text"
                     value={state.columnName}
                     onChange={(e) => dispatch(setColumnName(e.target.value))}
-                    className="w-full p-2 bg-[#251926]/50 rounded"
+                    className="w-full p-2 bg-[#CC0495]/50 rounded"
                     placeholder="column_name"
                   />
                 </div>
@@ -91,7 +91,7 @@ export default function AddColumnComponent({
                     type="text"
                     value={state.description}
                     onChange={(e) => dispatch(setDescription(e.target.value))}
-                    className="w-full p-2 bg-[#251926]/50 rounded"
+                    className="w-full p-2 bg-[#CC0495]/50 rounded"
                     placeholder="description"
                   />
                 </div>
@@ -105,7 +105,7 @@ export default function AddColumnComponent({
                   <select
                     value={state.columnType}
                     onChange={(e) => dispatch(setColumnType(e.target.value))}
-                    className="w-full p-2 bg-[#251926]/50 rounded"
+                    className="w-full p-2 bg-[#CC0495]/50 rounded"
                   >
                     <option value="">Select a type</option>
                     {postgresTypes.map((type) => (
@@ -154,7 +154,7 @@ export default function AddColumnComponent({
                     type="text"
                     value={state.defaultValue}
                     onChange={(e) => dispatch(setDefaultValue(e.target.value))}
-                    className="w-full p-2 bg-[#251926]/50 rounded"
+                    className="w-full p-2 bg-[#CC0495]/50 rounded"
                     placeholder="NULL"
                   />
                 </div>
@@ -166,7 +166,7 @@ export default function AddColumnComponent({
                 type="text"
                 value={state.checkConstraint}
                 onChange={(e) => dispatch(setCheckConstraint(e.target.value))}
-                className="p-2 bg-[#251926]/50 rounded w-3/5"
+                className="p-2 bg-[#CC0495]/50 rounded w-3/5"
                 placeholder="e.g. length(column_name) < 500"
               />
             </div>
@@ -174,7 +174,7 @@ export default function AddColumnComponent({
               <button
                 type="button"
                 onClick={onClose}
-                className="bg-[#251926]/50 text-white px-4 py-2 rounded hover:bg-gray-600"
+                className="bg-[#CC0495]/50 text-white px-4 py-2 rounded hover:bg-gray-600"
               >
                 Cancel
               </button>
